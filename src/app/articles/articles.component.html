@@ -1,0 +1,32 @@
+<h2>新規投稿</h2>
+<div>
+    <div>
+        <label>名前
+            <input #Articlename/>
+        </label>
+    </div>
+    <div>
+        <label>タイトル
+            <input #Articletitle/>
+        </label>
+    </div>
+    <div>
+        <label>内容
+            <input #Articlecontent/>
+        </label>
+    </div>
+    <button (click)="add(Articlename.value,Articletitle.value,Articlecontent.value)">
+            投稿
+    </button>
+</div>
+<h2>記事一覧</h2>
+<ul class="article">
+    <li *ngFor="let article of articles">
+        <a routerLink="/articles/{{article.id}}">
+            <div>{{article.title}}</div>
+            <div>{{article.name}}</div>
+            <div>{{article.content}}</div>
+            <div>{{article.date}}</div>
+        </a>
+    </li>
+</ul>

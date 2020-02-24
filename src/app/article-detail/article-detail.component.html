@@ -1,0 +1,9 @@
+<div *ngIf="article">
+    <h2>{{article.title}}</h2>
+    <div><span>{{article.name}}</span>  <span>{{article.date}}</span></div>
+    <div>{{article.content}}</div>
+    <div> 
+    <button (click)="goBack()">戻る</button>
+    <button routerLink="/articles/edit/{{article.id}}">編集</button>    
+    </div>
+</div>
