@@ -8,6 +8,9 @@ import { ArticlesComponent } from './articles/articles.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 import { ArticleEditComponent } from './article-edit/article-edit.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { AuthGuard  } from './guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,8 @@ import { ArticleEditComponent } from './article-edit/article-edit.component';
     ArticlesComponent,
     ArticleDetailComponent,
     ArticleEditComponent,
+    SignUpComponent,
+    SignInComponent,
 
   ],
   imports: [
@@ -23,7 +28,7 @@ import { ArticleEditComponent } from './article-edit/article-edit.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

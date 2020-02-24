@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'blog';
+
+  logout(){
+    localStorage.clear()
+  }
 }

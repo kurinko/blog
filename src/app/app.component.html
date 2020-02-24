@@ -1,5 +1,8 @@
 <h1>{{title}}</h1>
 <nav>
   <a routerLink="/articles">記事一覧</a>
+  <a routerLink="/signup">新規登録</a>
+  <a routerLink="/signin">ログイン</a>
+  <a routerLink="/signin" (click)=logout()>ログアウト</a>
 </nav>
 <router-outlet></router-outlet>

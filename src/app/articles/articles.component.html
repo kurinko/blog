@@ -24,9 +24,9 @@
     <li *ngFor="let article of articles">
         <a routerLink="/articles/{{article.id}}">
             <div>{{article.title}}</div>
-            <div>{{article.name}}</div>
             <div>{{article.content}}</div>
-            <div>{{article.date}}</div>
+            <div>{{article.name}}     <span>{{article.date}}</span></div>
+           
         </a>
     </li>
 </ul>

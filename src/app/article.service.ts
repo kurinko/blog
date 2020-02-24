@@ -3,7 +3,7 @@ import { Article } from './article';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { ARTICLES } from './mock-article';
+
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +40,6 @@ export class ArticleService {
 
   deleteArticle(id: number): Observable<Article>{
     const url = `${this.Url}/${id}`
-    return this.http.post<Article>(this.Url, this.httpOptions);
+    return this.http.post<Article>(this.Url,this.httpOptions);
   }
 }
