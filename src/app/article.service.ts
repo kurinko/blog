@@ -28,29 +28,41 @@ export class ArticleService {
   ) { }
 
   getArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(this.Url)
+    return this.http.get<Article[]>(this.Url)    
+    .pipe(
+      catchError(this.handleError<Article[]>('getArticles',[]))
+    );
   }
 
   getArticle(id :number): Observable<Article> {
     const url = `${this.Url}/${id}`
-    return this.http.get<Article>(url);
+    return this.http.get<Article>(url)
+    .pipe(
+      catchError(this.handleError<Article>(`getArticles id=${id}`))
+    );
   }
 
   postArticle(name :string,title :string,content :string): Observable<Article>{
     const postdata = {name, title, content};
-    return this.http.post<Article>(this.Url, postdata,this.httpOptions);
+    return this.http.post<Article>(this.Url, postdata,this.httpOptions)
+    .pipe(
+      catchError(this.handleError<Article>('postArticles'))
+    );
   }
   
   putArticle(id: number,title :string,content :string): Observable<any>{
     const putdata = {id, title, content};
-    return this.http.put(this.Url, putdata, this.httpOptions);
+    return this.http.put(this.Url, putdata, this.httpOptions)
+    .pipe(
+      catchError(this.handleError<Article>(`putArticles id=${id}`))
+    );
   }
 
   deleteArticle(id: number): Observable<Article>{
     const url = `${this.deleteUrl}/${id}`
     return this.http.delete<Article>(url,this.httpOptions)
     .pipe(
-      catchError(this.handleError<Article>(`Articles id=${id}`))
+      catchError(this.handleError<Article>(`deleteArticles id=${id}`))
     );
   }
 
