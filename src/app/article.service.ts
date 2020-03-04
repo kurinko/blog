@@ -11,8 +11,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 export class ArticleService {
 
   private Url = 'http://localhost:8000/articles'
+  private deleteUrl = 'http://localhost:8000/article'
   httpOptions = {
     headers: new HttpHeaders ({'Content-Type': 'application/json'})
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error); 
+     return of(result as T);
+    };
   }
 
   constructor(
@@ -39,7 +47,12 @@ export class ArticleService {
   }
 
   deleteArticle(id: number): Observable<Article>{
-    const url = `${this.Url}/${id}`
-    return this.http.post<Article>(this.Url,this.httpOptions);
+    const url = `${this.deleteUrl}/${id}`
+    return this.http.delete<Article>(url,this.httpOptions)
+    .pipe(
+      catchError(this.handleError<Article>(`Articles id=${id}`))
+    );
   }
+
+
 }
