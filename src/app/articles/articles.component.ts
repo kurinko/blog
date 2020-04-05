@@ -24,6 +24,7 @@ export class ArticlesComponent implements OnInit {
   add(name :string,title :string,content :string){
     this.articleService.postArticle(name,title,content)
       .subscribe(article => {this.articles.push(article)}) 
+    this.getArticles()
   }
 
 }

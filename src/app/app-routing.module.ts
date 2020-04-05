@@ -9,12 +9,12 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
-  // { path: 'articles', component: ArticlesComponent,canActivate:[AuthGuard]},
-  // { path: 'articles/:id', component: ArticleDetailComponent,canActivate:[AuthGuard]},
-  // { path: 'articles/edit/:id', component: ArticleEditComponent,canActivate:[AuthGuard]},
-  { path: 'articles', component: ArticlesComponent},
-  { path: 'articles/:id', component: ArticleDetailComponent},
-  { path: 'articles/edit/:id', component: ArticleEditComponent},
+  { path: 'articles', component: ArticlesComponent,canActivate:[AuthGuard]},
+  { path: 'articles/:id', component: ArticleDetailComponent,canActivate:[AuthGuard]},
+  { path: 'articles/edit/:id', component: ArticleEditComponent,canActivate:[AuthGuard]},
+  // { path: 'articles', component: ArticlesComponent},
+  // { path: 'articles/:id', component: ArticleDetailComponent},
+  // { path: 'articles/edit/:id', component: ArticleEditComponent},
   { path: 'signup', component: SignUpComponent},
   { path: 'signin', component: SignInComponent}
 ]

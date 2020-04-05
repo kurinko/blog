@@ -1,18 +1,15 @@
 <h2>ログイン</h2>
-<div>
-   <div>
-       <div>
-           <label>名前
-               <input #Username/>
-           </label>
-       </div>
-       <div>
-           <label>パスワード
-               <input type="password" #Userpassword/>
-           </label>
-       </div>
-   </div>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    <div>
+        <label>名前</label>
+        <input type="text" formControlName="name">
+    </div>
+    <div>
+        <label>パスワード</label>
+        <input type="password" formControlName="password"/>
+    </div>
    <div> 
-   <button (click)="login(Username.value,Userpassword.value)">ログイン</button>      
+        <button type="submit">ログイン</button>      
    </div>
-</div>
+</form>
+
